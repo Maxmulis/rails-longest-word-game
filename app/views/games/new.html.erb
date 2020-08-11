@@ -1,0 +1,11 @@
+<ol>
+  <% @letters.each do |letter| %>
+  <li><%= letter.capitalize %></li>
+  <% end %>
+</ol>
+<form action="/games/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @letters %>
+  <input type="text" name="answer">
+  <input type="submit" value="Go!">
+</form>
